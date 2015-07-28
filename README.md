@@ -1,5 +1,5 @@
 ## DemoTwitterApp
-This app was created to demonstrate several technologies. App connects with a "Demo" Twitter account (using OAuth). Prior set up is required for connection (Connection details, environment.properties file, is ignored in git check-in).
+This app was created to demonstrate several technologies. App connects with a "Demo" Twitter account (using OAuth). Prior set up is required for connection (Connection details file, environment.properties, is ignored in git check-in).
 
 Read more about spring integration with twitter [here](http://docs.spring.io/spring-integration/reference/html/twitter.html).
 
