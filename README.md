@@ -13,8 +13,8 @@ Read more about spring integration with twitter [here](http://docs.spring.io/spr
 
 ###Technologies/Tools Used:
 
-Framework	: Spring (Beans, Transactions, MVC, ORM, Integration).
-ORM			: Hibernate.
-Caching		: Redis.
-Database	: MySQL.
+- Framework	: Spring (Beans, Transactions, MVC, ORM, Integration)
+- ORM		: Hibernate
+- Caching	: Redis
+- Database	: MySQL
 
