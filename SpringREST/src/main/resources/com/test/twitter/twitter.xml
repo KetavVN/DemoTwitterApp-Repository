@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:int-twitter="http://www.springframework.org/schema/integration/twitter"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/twitter http://www.springframework.org/schema/integration/twitter/spring-integration-twitter.xsd">
+ 
+    <int:channel id="twitterOutbound" />
+ 
+    <int-twitter:outbound-channel-adapter twitter-template="twitterTemplate" channel="twitterOutbound"
+    	id="twitterOut" auto-startup="true"  />
+ 
+	<int:channel id="timelineChannel">
+		<int:queue capacity="20" />
+	</int:channel>
+ 
+	<int-twitter:inbound-channel-adapter id="twitterInbound" 
+		auto-startup="true" twitter-template="twitterTemplate" channel="timelineChannel">
+	    <int:poller receive-timeout="60000" fixed-rate="60000" max-messages-per-poll="10"/>
+	</int-twitter:inbound-channel-adapter>
+
+</beans>
